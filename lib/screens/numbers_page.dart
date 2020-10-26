@@ -1,9 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tokyo/models/numbers_model.dart';
-
+import 'package:audioplayers/audio_cache.dart';
 class NumbersPage extends StatelessWidget {
-
 
   @override
   Widget build(BuildContext context) {
@@ -48,6 +47,17 @@ class NumbersPage extends StatelessWidget {
                         ),
                       ),
                     ],
+                  ),
+                  Expanded(
+                    child: IconButton(
+                      onPressed: (){
+                        AudioCache audioPlayer = AudioCache();
+                        audioPlayer.play(numberList[index].audio);
+                      },
+                      alignment: Alignment.centerRight,
+                      icon: Icon(Icons.play_arrow),
+                      color: Colors.white,
+                    ),
                   ),
                 ],
               ),
